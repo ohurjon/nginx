@@ -1,0 +1,12 @@
+services:
+  nginx: 
+    image: nginx:ohurjon-1.0
+    volumes:
+      - ./mime.types:/opt/nginx/mime.types
+      - ./nginx.conf:/opt/nginx/conf/nginx.conf
+      - ./conf.d/:/opt/nginx/conf.d
+      - ./static/:/usr/share/static
+      - ./.htpasswd:/opt/nginx/.htpasswd
+    ports:
+      - 80:80
+      - 443:443
